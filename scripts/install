@@ -19,3 +19,7 @@ sed -i "s@IPTOCHANGE@$ip@g" ../conf/nginx.conf
 sudo cp ../conf/nginx.conf /etc/nginx/conf.d/$domain.d/nas.conf
 sudo service nginx reload
 echo $?
+
+# Regenerate SSOwat conf
+sudo yunohost app setting nas skipped_uris -v "/"
+sudo yunohost app ssowatconf
